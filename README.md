@@ -130,7 +130,7 @@ pip install pandas numpy matplotlib seaborn nltk scikit-learn transformers torch
 | File | Description |
 |------|-------------|
 | `RAISE-26 Competition Guidelines.pdf` | Project Guidelines |
-| `RAISE26 NLP Text Classification Pipeline.ipynb` | Complete Analysis Pipeline |
+| `RAISE-26 NLP Text Classification Pipeline.ipynb` | Complete Analysis Pipeline |
 | `RAISE-26 Presentation.pptx` | Project Presentation Slides |
 | `RAISE-26 Methodological Analysis.pdf` | Project Theoretical Analysis |
 ## Acknowledgments
