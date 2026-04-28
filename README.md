@@ -1,138 +1,133 @@
-# RAISE-26 AI Behavioral Impact Analysis: A Multi-Label NLP Text Classification Pipeline
-An end-to-end NLP pipeline for classifying news headlines into 12 behavioral impact categories, with comparative analysis of LLM-generated content and financial market correlations.
+# AI Narrative Intelligence: Multi-Label NLP Pipeline
 
-## Project Overview
+Turning large-scale news data into structured signals that quantify how AI is framed across economic, cognitive, and social dimensions.
 
-This project analyzes **10,500+ news headlines** to understand how media frames AI's behavioral impact on society. The pipeline includes:
+---
 
-- **Multi-label text classification** with 12 behavioral categories
-- **Model comparison**: TF-IDF + Logistic Regression vs. Fine-tuned DistilBERT
-- **LLM narrative analysis**: Comparing outputs from Llama, Mistral, and Qwen
-- **Topic modeling** with NMF for thematic discovery
-- **Quantitative finance extension**: Correlating media sentiment with market movements
+## Overview
 
-## Key Results
+This project builds an end-to-end NLP system to analyze **10,500+ news headlines** and map them into a structured **12-category behavioral taxonomy**.
 
-### Classification Performance
+The goal is to move from unstructured text to **quantifiable insights about AI’s societal impact**.
 
-| Model | Micro-F1 | Macro-F1 | Weighted-F1 | Samples-F1 |
-|-------|----------|----------|-------------|------------|
-| **TF-IDF + Logistic Regression** | **0.9430** | **0.9331** | **0.9425** | **0.9216** |
-| DistilBERT (Fine-tuned) | 0.9214 | 0.8862 | 0.9149 | 0.9115 |
+---
 
-> The traditional baseline outperformed the transformer model by 2.16pp (Micro-F1), demonstrating that sparse features with linear classifiers can be highly effective for short-text classification.
+## Key Insights
 
-### Per-Label Performance (Top & Bottom)
+### Model Performance
 
-| Category | Precision | Recall | F1 Score |
-|----------|-----------|--------|----------|
-| Work, Jobs & Economy | 1.000 | 0.965 | **0.982** |
-| Learning, Knowledge & Education | 0.984 | 0.959 | 0.971 |
-| Technology & Interaction | 0.990 | 0.936 | 0.962 |
-| ... | ... | ... | ... |
-| Emotion, Motivation & Well-being | 1.000 | 0.800 | 0.889 |
-| Cognitive & Decision-Making | 0.807 | 0.893 | 0.848 |
+| Model                        | Micro-F1 | Improvement |
+| ---------------------------- | -------- | ----------- |
+| TF-IDF + Logistic Regression | 0.943    | Best        |
+| DistilBERT (fine-tuned)      | 0.921    | -2.16pp     |
 
-> Categories with clear lexical markers (e.g., "jobs", "automation") achieve near-perfect precision, while abstract concepts (e.g., cognitive, emotional) show semantic overlap with adjacent categories.
+A key finding is that **classical linear models outperform transformer-based models in short-text classification**, suggesting that sparse representations remain highly effective in high-signal regimes.
 
-### Behavioral Categories
+---
 
-The 12-class taxonomy covers:
+### Behavioral Signal Structure
 
-| Economic | Cognitive | Social |
-|----------|-----------|--------|
-| Work, Jobs & Economy | Cognitive & Decision-Making | Social Interaction & Relationships |
-| Learning, Knowledge & Education | Creativity, Expression & Identity | Human Roles |
-| Technology & Interaction | Emotion, Motivation & Well-being | Society, Ethics & Culture |
-| Health, Safety & Risk | Sentiment (Positive/Negative) | Routine, Lifestyle & Behavior |
+* Categories with explicit lexical markers (e.g., jobs, automation) achieve near-perfect precision (F1 ≈ 0.98)
+* Abstract categories (e.g., cognition, emotion) show semantic overlap and reduced separability
+* Media narratives exhibit structured patterns but contain inherent ambiguity
 
-### Topic Modeling (NMF)
+---
 
-Discovered 10 latent topics from the corpus:
+### LLM Narrative Analysis
 
-| Topic | Top Keywords |
-|-------|--------------|
-| Topic 0 | artificial intelligence, stock, prediction, technology |
-| Topic 1 | ai innovation, future, data governance, global tech |
-| Topic 2 | healthcare, medical diagnosis, patient care |
-| Topic 3 | jobs, workers, automation, employment |
-| Topic 4 | education, students, learning, classroom |
+We compare outputs from multiple LLMs (Llama, Mistral, Qwen):
 
-### LLM Comparison Insights
+* 55–60% topic overlap across models
+* Statistically significant differences in label distributions (χ² test, p < 0.05)
 
-| LLM | Dominant Categories | Topic Diversity (Entropy) |
-|-----|---------------------|---------------------------|
-| **Llama** | 7/12 categories (broadest) | High |
-| **Mistral** | 3/12 categories | Highest |
-| **Qwen** | 2/12 categories (focused) | Lower |
+This suggests that while models converge on similar themes, they differ in how they frame narratives.
 
-> Despite different architectures, all three LLMs show ~55-60% cluster overlap, suggesting convergent narrative framing. Chi-Square tests confirm significant differences in label distributions across LLMs (p < 0.05). All experiments seeded (SEED=42) with deterministic CUDA operations for reproducibility.
+---
 
-### Statistical Validation
+## Why This Project Matters
 
-- **Chi-Square Test**: Significant differences in label distributions across LLMs (p < 0.05)
-- **Label Distribution**: Maintained consistent across train/val/test splits via stratified sampling
-- **Reproducibility**: All experiments seeded (SEED=42) with deterministic CUDA operations
+### Structured Taxonomy Design
 
-## Pipeline Architecture
+We introduce a 12-category framework spanning:
 
+* Economic impact
+* Cognitive processes
+* Social dynamics
+
+This enables consistent and scalable analysis of AI-related narratives.
+
+---
+
+### Practical ML Insight
+
+Rather than defaulting to deep learning, this project:
+
+* Benchmarks classical and transformer-based approaches
+* Identifies conditions where simpler models outperform
+* Emphasizes model selection based on data characteristics
+
+---
+
+### Beyond NLP
+
+The pipeline extends into:
+
+* Topic modeling (NMF)
+* Financial signal exploration (market correlation)
+
+Linking narrative patterns to broader system-level signals.
+
+---
+
+## Methodology
+
+```bash
+Data → Preprocessing → Multi-label Encoding
+      ↓
+TF-IDF + Logistic Regression
+      ↓
+DistilBERT Fine-tuning
+      ↓
+Evaluation & Error Analysis
+      ↓
+Topic Modeling + LLM Analysis
 ```
-Data Loading → Preprocessing → Multi-Label Encoding → Train/Val/Test Split
-                                                              ↓
-                              ┌─────────────────────────────────────────────┐
-                              │                                             │
-                              ▼                                             ▼
-                    TF-IDF + LogReg                              DistilBERT Fine-tuning
-                    (Baseline Model)                             (Deep Learning Model)
-                              │                                             │
-                              └──────────────┬──────────────────────────────┘
-                                             ▼
-                                   Model Evaluation & Comparison
-                                             ↓
-                    ┌────────────────────────┼────────────────────────┐
-                    ▼                        ▼                        ▼
-             Topic Modeling           LLM Output Analysis      Quant Finance Extension
-               (NMF)                (Llama/Mistral/Qwen)       (Market Correlation)
-```
+
+---
 
 ## Tech Stack
 
-**Core ML/NLP:**
-- scikit-learn (TF-IDF, Logistic Regression, NMF)
-- PyTorch + HuggingFace Transformers (DistilBERT)
-- NLTK (Text preprocessing)
+* NLP / ML: scikit-learn, PyTorch, HuggingFace Transformers
+* Data: pandas, numpy
+* Modeling: Logistic Regression, DistilBERT, NMF
+* Statistics: scipy
+* Finance: yfinance, arch
 
-**Analysis & Visualization:**
-- pandas, numpy
-- matplotlib, seaborn
-- scipy (Statistical testing)
+---
 
-**Finance Extension:**
-- yfinance, arch (GARCH modeling)
+## Setup
 
-## Environment
-
-#### Run on Google Colab (Recommended)
 ```bash
-# If running in Google Colab, uncomment the following lines.
-!pip -q install -U nltk iterative-stratification
-!pip -q install -U transformers datasets accelerate
-
-# Local Environment Setup
-pip install pandas numpy matplotlib seaborn nltk scikit-learn transformers torch accelerate iterative-stratification
-
-#Quant Analysis Dependencies
-!pip install -q yfinance arch
+pip install pandas numpy scikit-learn transformers torch nltk
+pip install yfinance arch
 ```
 
-## Files
+Run:
 
-| File | Description |
-|------|-------------|
-| `RAISE-26 Competition Guidelines.pdf` | Project Guidelines |
-| `RAISE-26 NLP Text Classification Pipeline.ipynb` | Complete Analysis Pipeline |
-| `RAISE-26 Presentation.pptx` | Project Presentation Slides |
-| `RAISE-26 Methodological Analysis.pdf` | Project Theoretical Analysis |
-## Acknowledgments
+```bash
+jupyter notebook NLP_pipeline.ipynb
+```
 
-Built for **RAISE 2026** Research Competition.
+---
+
+## Project Structure
+
+```bash
+.
+├── data/
+├── notebooks/
+│   └── NLP_pipeline.ipynb
+├── models/
+├── results/
+└── README.md
+```
