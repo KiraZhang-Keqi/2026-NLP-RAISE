@@ -2,15 +2,11 @@
 
 Turning large-scale news data into structured signals that quantify how AI is framed across economic, cognitive, and social dimensions.
 
----
-
 ## Overview
 
 This project builds an end-to-end NLP system to analyze **10,500+ news headlines** and map them into a structured **12-category behavioral taxonomy**.
 
 The goal is to move from unstructured text to **quantifiable insights about AI’s societal impact**.
-
----
 
 ## Key Insights
 
@@ -23,15 +19,11 @@ The goal is to move from unstructured text to **quantifiable insights about AI�
 
 A key finding is that **classical linear models outperform transformer-based models in short-text classification**, suggesting that sparse representations remain highly effective in high-signal regimes.
 
----
-
 ### Behavioral Signal Structure
 
 * Categories with explicit lexical markers (e.g., jobs, automation) achieve near-perfect precision (F1 ≈ 0.98)
 * Abstract categories (e.g., cognition, emotion) show semantic overlap and reduced separability
 * Media narratives exhibit structured patterns but contain inherent ambiguity
-
----
 
 ### LLM Narrative Analysis
 
@@ -42,9 +34,7 @@ We compare outputs from multiple LLMs (Llama, Mistral, Qwen):
 
 This suggests that while models converge on similar themes, they differ in how they frame narratives.
 
----
-
-## Why This Project Matters
+## Project Significance
 
 ### Structured Taxonomy Design
 
@@ -56,7 +46,6 @@ We introduce a 12-category framework spanning:
 
 This enables consistent and scalable analysis of AI-related narratives.
 
----
 
 ### Practical ML Insight
 
@@ -66,8 +55,6 @@ Rather than defaulting to deep learning, this project:
 * Identifies conditions where simpler models outperform
 * Emphasizes model selection based on data characteristics
 
----
-
 ### Beyond NLP
 
 The pipeline extends into:
@@ -76,8 +63,6 @@ The pipeline extends into:
 * Financial signal exploration (market correlation)
 
 Linking narrative patterns to broader system-level signals.
-
----
 
 ## Methodology
 
@@ -93,8 +78,6 @@ Evaluation & Error Analysis
 Topic Modeling + LLM Analysis
 ```
 
----
-
 ## Tech Stack
 
 * NLP / ML: scikit-learn, PyTorch, HuggingFace Transformers
@@ -102,8 +85,6 @@ Topic Modeling + LLM Analysis
 * Modeling: Logistic Regression, DistilBERT, NMF
 * Statistics: scipy
 * Finance: yfinance, arch
-
----
 
 ## Setup
 
@@ -117,8 +98,6 @@ Run:
 ```bash
 jupyter notebook NLP_pipeline.ipynb
 ```
-
----
 
 ## Project Structure
 
