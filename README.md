@@ -1,6 +1,6 @@
 # AI Narrative Intelligence
 
-🔗 Live Demo:
+Live Demo:
 https://2026-nlp-raise-elmt8eifyab9huiuoztk3j.streamlit.app/
 
 An NLP system that transforms 10,500+ AI news headlines into structured behavioral signals across 12 economic, cognitive, and social categories.
