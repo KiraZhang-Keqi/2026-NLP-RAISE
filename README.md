@@ -4,13 +4,9 @@
 
 An NLP system that transforms **10,500+ AI news headlines** into structured behavioral signals across **12 economic, cognitive, and social categories**.
 
----
-
 ## Dashboard Preview
 
 ![Dashboard](images/dashboard.png)
-
----
 
 ## Project Overview
 
@@ -26,8 +22,6 @@ The system combines:
 * LLM narrative comparison
 * Interactive dashboard deployment
 
----
-
 ## Key Results
 
 | Model                        | Micro-F1  |
@@ -41,8 +35,6 @@ The system combines:
 * Categories with explicit keywords (e.g., jobs, automation) achieved the highest accuracy.
 * Abstract concepts (e.g., cognition, emotion) showed greater semantic overlap.
 * Llama, Mistral, and Qwen converged on similar themes but differed in narrative framing.
-
----
 
 ## Example Prediction
 
@@ -60,8 +52,6 @@ Innovation
 Productivity
 Economic Impact
 ```
-
----
 
 ## Dashboard Features
 
@@ -82,8 +72,6 @@ Explore category distributions, model performance, and latent narrative themes.
 Compare how different open-weight LLMs frame the same AI-related headline.
 
 ![LLM Comparison](images/llm_comparison.png)
-
----
 
 ## Tech Stack
 
@@ -111,8 +99,6 @@ Compare how different open-weight LLMs frame the same AI-related headline.
 * Streamlit
 * GitHub
 
----
-
 ## Repository Structure
 
 ```text
@@ -124,8 +110,6 @@ Compare how different open-weight LLMs frame the same AI-related headline.
 ├── requirements.txt
 └── images/
 ```
-
----
 
 ## Skills Demonstrated
 
