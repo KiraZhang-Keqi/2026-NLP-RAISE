@@ -1,112 +1,142 @@
-# AI Narrative Intelligence: Multi-Label NLP Pipeline
+# AI Narrative Intelligence
 
-Turning large-scale news data into structured signals that quantify how AI is framed across economic, cognitive, and social dimensions.
+🔗 **Live Demo:** https://2026-nlp-raise-elmt8eifyab9huiuoztk3j.streamlit.app/
 
-## Overview
+An NLP system that transforms **10,500+ AI news headlines** into structured behavioral signals across **12 economic, cognitive, and social categories**.
 
-This project builds an end-to-end NLP system to analyze **10,500+ news headlines** and map them into a structured **12-category behavioral taxonomy**.
+---
 
-The goal is to move from unstructured text to **quantifiable insights about AI’s societal impact**.
+## Dashboard Preview
 
-## Key Insights
+![Dashboard](images/dashboard.png)
 
-### Model Performance
+---
 
-| Model                        | Micro-F1 | Improvement |
-| ---------------------------- | -------- | ----------- |
-| TF-IDF + Logistic Regression | 0.943    | Best        |
-| DistilBERT (fine-tuned)      | 0.921    | -2.16pp     |
+## Project Overview
 
-A key finding is that **classical linear models outperform transformer-based models in short-text classification**, suggesting that sparse representations remain highly effective in high-signal regimes.
+AI-related news shapes public perception, investment decisions, and policy discussions, yet most narratives remain unstructured.
 
-### Behavioral Signal Structure
+This project builds an end-to-end NLP pipeline that classifies AI news headlines into a behavioral taxonomy, enabling large-scale analysis of how AI is framed in public discourse.
 
-* Categories with explicit lexical markers (e.g., jobs, automation) achieve near-perfect precision (F1 ≈ 0.98)
-* Abstract categories (e.g., cognition, emotion) show semantic overlap and reduced separability
-* Media narratives exhibit structured patterns but contain inherent ambiguity
+The system combines:
 
-### LLM Narrative Analysis
-
-We compare outputs from multiple LLMs (Llama, Mistral, Qwen):
-
-* 55–60% topic overlap across models
-* Statistically significant differences in label distributions (χ² test, p < 0.05)
-
-This suggests that while models converge on similar themes, they differ in how they frame narratives.
-
-## Project Significance
-
-### Structured Taxonomy Design
-
-We introduce a 12-category framework spanning:
-
-* Economic impact
-* Cognitive processes
-* Social dynamics
-
-This enables consistent and scalable analysis of AI-related narratives.
-
-
-### Practical ML Insight
-
-Rather than defaulting to deep learning, this project:
-
-* Benchmarks classical and transformer-based approaches
-* Identifies conditions where simpler models outperform
-* Emphasizes model selection based on data characteristics
-
-### Beyond NLP
-
-The pipeline extends into:
-
+* Multi-label text classification
 * Topic modeling (NMF)
-* Financial signal exploration (market correlation)
+* Statistical analysis
+* LLM narrative comparison
+* Interactive dashboard deployment
 
-Linking narrative patterns to broader system-level signals.
+---
 
-## Methodology
+## Key Results
 
-```bash
-Data → Preprocessing → Multi-label Encoding
-      ↓
-TF-IDF + Logistic Regression
-      ↓
-DistilBERT Fine-tuning
-      ↓
-Evaluation & Error Analysis
-      ↓
-Topic Modeling + LLM Analysis
+| Model                        | Micro-F1  |
+| ---------------------------- | --------- |
+| TF-IDF + Logistic Regression | **0.943** |
+| DistilBERT (Fine-Tuned)      | 0.921     |
+
+### Findings
+
+* Classical ML outperformed DistilBERT on short-text classification.
+* Categories with explicit keywords (e.g., jobs, automation) achieved the highest accuracy.
+* Abstract concepts (e.g., cognition, emotion) showed greater semantic overlap.
+* Llama, Mistral, and Qwen converged on similar themes but differed in narrative framing.
+
+---
+
+## Example Prediction
+
+**Input**
+
+```text
+OpenAI launches autonomous AI agents for enterprise workflows
 ```
+
+**Output**
+
+```text
+Automation
+Innovation
+Productivity
+Economic Impact
+```
+
+---
+
+## Dashboard Features
+
+### Headline Classification
+
+Predict behavioral categories for unseen AI news headlines.
+
+![Classification](images/classification.png)
+
+### Narrative Analytics
+
+Explore category distributions, model performance, and latent narrative themes.
+
+![Analytics](images/analytics.png)
+
+### LLM Narrative Comparison
+
+Compare how different open-weight LLMs frame the same AI-related headline.
+
+![LLM Comparison](images/llm_comparison.png)
+
+---
 
 ## Tech Stack
 
-* NLP / ML: scikit-learn, PyTorch, HuggingFace Transformers
-* Data: pandas, numpy
-* Modeling: Logistic Regression, DistilBERT, NMF
-* Statistics: scipy
-* Finance: yfinance, arch
+**Machine Learning & NLP**
 
-## Setup
+* Python
+* scikit-learn
+* PyTorch
+* HuggingFace Transformers
 
-```bash
-pip install pandas numpy scikit-learn transformers torch nltk
-pip install yfinance arch
-```
+**Data Analysis**
 
-Run:
+* pandas
+* NumPy
+* SciPy
 
-```bash
-jupyter notebook NLP_pipeline.ipynb
-```
+**Modeling**
 
-## Project Structure
+* Logistic Regression
+* DistilBERT
+* NMF Topic Modeling
 
-```bash
+**Deployment**
+
+* Streamlit
+* GitHub
+
+---
+
+## Repository Structure
+
+```text
 .
-├── data/
-├── notebooks/
-│   └── NLP_pipeline.ipynb
-├── models/
-├── results/
-└── README.md
+├── README.md
+├── app.py
+├── NLP_Pipeline.ipynb
+├── Project_Presentation.pdf
+├── requirements.txt
+└── images/
 ```
+
+---
+
+## Skills Demonstrated
+
+* Multi-Label NLP
+* Text Classification
+* Feature Engineering
+* Model Evaluation
+* Topic Modeling
+* Statistical Testing
+* Data Visualization
+* Dashboard Development
+
+---
+
